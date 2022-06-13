@@ -25,3 +25,7 @@ Route::get('/usuarios/activos={activo}', [ApiController::class, 'getUserByStatus
 
 # Endpoint POST
 Route::post('/usuarios', [ApiController::class, 'createUser']);
+
+# Endpoint PUT/PATCH
+Route::patch('/usuarios/{id}', [ApiController::class, 'updateUserById']);
+Route::patch('/usuarios/email={email}', [ApiController::class, 'updateUserByEmail']);

@@ -105,4 +105,48 @@ class UserController extends Controller
 
         return $response;
     }
+
+    # Actualizar usuario segun id
+    public function updateUserById(Request $request, $id){
+        $url = env("API_URL", 1) . '/' . $id;
+        $user = new Curl();
+
+        $dataArray = [
+            $request->name,
+            $request->email,
+            $request->gender, 
+            $request->status
+        ];
+    
+        $response = $user->createUpdateUser($url, 'PATCH', $dataArray);
+
+        return $response;
+    }
+
+    # Actualizar usuario segun id
+    public function updateUserByEmail(Request $request, $email){
+        $url = env("API_URL", 1);
+
+        $user = new Curl();
+        $usuarios = $user->getUser($url);
+        $decode = json_decode($usuarios, TRUE);
+
+        foreach($decode as $key => $value){
+            if($value['email'] == $email){
+                $dataArray = [
+                    $request->name,
+                    $request->gender, 
+                    $request->status
+                ];
+        
+                $response = $user->createUpdateUser($url, 'PATCH', $dataArray);
+                return $response;
+                break;
+            }else{
+                return response()->json([
+                    "message" => "User emaiil not found"
+                ], 404);
+            }
+        }
+    }
 }
