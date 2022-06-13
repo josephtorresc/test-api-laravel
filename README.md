@@ -15,6 +15,11 @@ Para poder ejecutar correctamente este código necesitas tener instalado:
 * Composer
 * Postman (Para poder ejecutar y probar la API)
 
+### Configuración ⚙️
+
+Completar la url y token de la API Go Rest en el archivo .env.
+Para obtener estos datos, ingresar a esta [url](https://gorest.co.in/)
+
 ### Instalación 🔧
 
 Ejecutar el siguiente comando en la raíz del proyecto
@@ -22,6 +27,43 @@ Ejecutar el siguiente comando en la raíz del proyecto
 ```
 php artisan serve
 ```
+
+### Ejecución 📦
+
+_Para la realización de las pruebas, se ocupará la herramienta postman_
+
+#### GET
+
+Ej. Para obtener todos los usuarios por su nombre, necesita la siguiente url:
+
+```
+http://127.0.0.1:8000/usuarios/nombre=exampleName
+```
+
+En caso de no obtener resultados, retornará un mensaje de error.
+
+#### POST
+
+Ej. Para poder crear un usuario, necesita configurar el Body de postman con los siguientes valores, eligiendo la opción _form-data_
+
+```
+KEY VALUE
+name nameValue
+email emailValue
+gender genderValue
+status statusValue
+```
+
+En caso de que el usuario de haya creado correctamente, este retornará un json con los datos y id del usuario creado.
+
+#### PUT/PATCH
+
+Ej. Para poder actualizar un usuario segun su id, necesita configurar el Body de postman con los mismos valores ocupados para cerar un usuario, eligiendo la opción _x-www-form-urlencoded_
+
+```
+http://127.0.0.1:8000/usuarios/19021
+```
+
 
 ## Construido con 🛠️
 
