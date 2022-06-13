@@ -78,4 +78,5 @@ class Curl{
 
         return $response;
     }
+    
 }
