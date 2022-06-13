@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,14 +20,14 @@ Route::get('/', function () {
 });
 
 # Endpoint GET
-Route::get('/usuarios', [ApiController::class, 'index']);
-Route::get('/usuarios/nombre={nombre}', [ApiController::class, 'getUserByName']);
-Route::get('/usuarios/email={email}', [ApiController::class, 'getUserByEmail']);
-Route::get('/usuarios/activos={activo}', [ApiController::class, 'getUserByStatus']);
+Route::get('/usuarios', [UserController::class, 'index']);
+Route::get('/usuarios/nombre={nombre}', [UserController::class, 'getUserByName']);
+Route::get('/usuarios/email={email}', [UserController::class, 'getUserByEmail']);
+Route::get('/usuarios/activos={activo}', [UserController::class, 'getUserByStatus']);
 
 # Endpoint POST
-Route::post('/usuarios', [ApiController::class, 'createUser']);
+Route::post('/usuarios', [UserController::class, 'createUser']);
 
 # Endpoint PUT/PATCH
-Route::patch('/usuarios/{id}', [ApiController::class, 'updateUserById']);
-Route::patch('/usuarios/email={email}', [ApiController::class, 'updateUserByEmail']);
+Route::patch('/usuarios/{id}', [UserController::class, 'updateUserById']);
+Route::patch('/usuarios/email={email}', [UserController::class, 'updateUserByEmail']);
