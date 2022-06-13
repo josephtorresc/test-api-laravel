@@ -22,3 +22,6 @@ Route::get('/usuarios', [ApiController::class, 'index']);
 Route::get('/usuarios/nombre={nombre}', [ApiController::class, 'getUserByName']);
 Route::get('/usuarios/email={email}', [ApiController::class, 'getUserByEmail']);
 Route::get('/usuarios/activos={activo}', [ApiController::class, 'getUserByStatus']);
+
+# Endpoint POST
+Route::post('/usuarios', [ApiController::class, 'createUser']);

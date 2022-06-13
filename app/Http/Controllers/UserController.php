@@ -82,4 +82,27 @@ class UserController extends Controller
 
         return $data;
     }
+
+    # Crear usuario
+    public function createUser(Request $request){
+        $url = env("API_URL", 1);
+        $user = new Curl();
+
+        $dataArray = [
+            $request->name,
+            $request->email,
+            $request->gender, 
+            $request->status
+        ];
+    
+        $response = $user->createUpdateUser($url, 'POST', $dataArray);
+
+        if(empty($response)){
+            return response()->json([
+                "message" => "User not created"
+            ], 404);
+        }
+
+        return $response;
+    }
 }
