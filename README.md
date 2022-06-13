@@ -13,7 +13,7 @@ Para poder ejecutar correctamente este código necesitas tener instalado:
 
 * PHP (Puede instalar en este caso algun software como XAMPP o MAMP, los cuales ya incluyen PHP, Apache, entre otros más)
 * Composer
-* Postman (Para poder ejecutar y probar la API)
+* Postman (Para poder probar la API)
 
 ### Configuración ⚙️
 
